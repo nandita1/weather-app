@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form action="/" method="POST" class="form-inline">
+        <input
+          name="city"
+          class="w-75"
+          type="text"
+          placeholder="Search by city"
+          aria-label="Search"
+        />
+        <button type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+      <% if (search) {%>
+      <article class="widget">
+        <div class="weatherIcon">
+          <i class="<%=icon%>"></i>
+        </div>
+        <div class="weatherInfo">
+          <div class="temperature"><span><%=temp%>&deg;</span></div>
+          <div class="description">
+            <div class="weatherCondition"><%=description%></div>
+            <div class="place"><%=cityName%></div>
+          </div>
+        </div>
+        <div class="date"><%=date%> <%=month%></div>
+      </article>
+      <% } %> <% if(search == false) {%>
+      <article class="widget">
+        <div class="weatherIcon"><i class="wi wi-day-cloudy"></i></div>
+        <div class="weatherInfo">
+          <div class="temperature"><span>25&deg;</span></div>
+          <div class="description">
+            <div class="weatherCondition">CLOUDY</div>
+            <div class="place">New York, New York</div>
+          </div>
+        </div>
+        <div class="date">1st Jan</div>
+      </article>
+      <% } %>
+    </div>
+  </body>
+</html>
